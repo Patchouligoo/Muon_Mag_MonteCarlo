@@ -20,15 +20,14 @@ from random_generator import *
 
 """
 ===================================file header======================================
-This file is the main body of the muon flux simulator. It choose 31 energy levels
-from 1GeV ro 1TeV logly spaced. For each energy level muons are shoot in 28 x 73 bins
-with evenly spcaed cos theta and phi. 
+This file is the main body of the muon flux simulator. It cuts the sky from cos_theta = 0.3 to 0.1 into
+4 bands, and for each band 100,000 muons are randomly initialized by the random generator and shooted then. They
+will be propagated until hitting the detector or lossing all energy.
 
-The final output is 31 files corresponding to each energy level, in each file the 
-final result (position, energy, direction and so on) of muon with these initial angles
-are listed.
+The final output is one file for all the muons that are marked as hit events. Their final dorection of velocity,
+energy, and probability density will be recorded.
 
-Then these files will be corrected in correction.py
+Then these files can be converted into muon flux in this band
 =======================================end==========================================
 """
 # todo: in order to simulate negative muon flux, need to manually change the sign of function getB() to minus
